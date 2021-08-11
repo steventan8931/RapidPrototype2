@@ -6,7 +6,7 @@ public class PressurePlate : MonoBehaviour
 {
     public Door m_Door;
 
-    public GameObject m_Model;
+    public Transform m_Model;
 
     public Vector3 m_StartPosition;
     public Vector3 m_EndPosition;
@@ -19,7 +19,6 @@ public class PressurePlate : MonoBehaviour
 
     private void Start()
     {
-        m_StartPosition = m_Model.transform.localPosition;
         m_CacheBool = m_Pressed;
     }
 
@@ -41,29 +40,29 @@ public class PressurePlate : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //    if (m_CacheBool != m_Pressed)
-    //    {
-    //        m_PlatePressTimer = 0.0f;
-    //        m_CacheBool = m_Pressed;
-    //    }
-    //    if (m_Pressed)
-    //    {
-    //        if (m_Model.transform.localPosition != m_EndPosition)
-    //        {
-    //            m_PlatePressTimer += Time.deltaTime * m_PlatePressSpeed;
-    //        }
-    //        m_Model.transform.position = Vector3.Lerp(m_Model.transform.localPosition, m_EndPosition, m_PlatePressTimer);
-    //    }
-    //    else
-    //    {
-    //        if (m_Model.transform.localPosition != m_StartPosition)
-    //        {
-    //            m_PlatePressTimer += Time.deltaTime * m_PlatePressSpeed;
-    //        }
-    //        m_Model.transform.localPosition = Vector3.Lerp(m_Model.transform.localPosition, m_StartPosition, m_PlatePressTimer);
-    //    }
-    //}
+    private void Update()
+    {
+        if (m_CacheBool != m_Pressed)
+        {
+            m_PlatePressTimer = 0.0f;
+            m_CacheBool = m_Pressed;
+        }
+        if (m_Pressed)
+        {
+            if (m_Model.localPosition != m_EndPosition)
+            {
+                m_PlatePressTimer += Time.deltaTime * m_PlatePressSpeed;
+            }
+            m_Model.localPosition = Vector3.Lerp(m_Model.localPosition, m_EndPosition, m_PlatePressTimer);
+        }
+        else
+        {
+            if (m_Model.transform.localPosition != m_StartPosition)
+            {
+                m_PlatePressTimer += Time.deltaTime * m_PlatePressSpeed;
+            }
+            m_Model.localPosition = Vector3.Lerp(m_Model.localPosition, m_StartPosition, m_PlatePressTimer);
+        }
+    }
 
 }

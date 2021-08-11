@@ -25,7 +25,6 @@ public class CharacterMotor : MonoBehaviour
 
     public float m_FacingAngle = 0.0f;
 
-
     public void Update()
     {
         float x = 0.0f;

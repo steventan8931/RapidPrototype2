@@ -10,6 +10,9 @@ public class Gun : MonoBehaviour
 
     public GameObject m_ProjectilePrefab;
 
+    public float m_ShotDelayTimer = 0.0f;
+    public float m_ShotDelay = 0.01f;
+
     private void Update()
     {
         float CameraOffset = Vector3.Distance(transform.position, Camera.main.transform.position);
@@ -38,9 +41,18 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.Mouse0))
+        if (m_ShotDelayTimer <= 0)
         {
-            Instantiate(m_ProjectilePrefab, m_FirePoint.position, transform.rotation);
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                Instantiate(m_ProjectilePrefab, m_FirePoint.position, transform.rotation);
+                m_ShotDelayTimer = m_ShotDelay;
+            }
         }
+        else
+        {
+            m_ShotDelayTimer -= Time.deltaTime;
+        }
+
     }
 }

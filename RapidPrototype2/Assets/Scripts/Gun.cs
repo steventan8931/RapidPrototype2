@@ -22,20 +22,14 @@ public class Gun : MonoBehaviour
         Vector3 direction = mouseWorldPosition - transform.position;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Debug.Log(angle);
 
         if (m_Model.transform.localScale.x > 0)
         {
             transform.localRotation = Quaternion.Euler(-angle, 0, 0);
-            //if (angle < -90 || angle > 90)
-            //{
-            //    m_Model.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-            //}
         }
-        else
+        else if (m_Model.transform.localScale.x < 0)
         {
-            transform.localRotation = Quaternion.Euler(-angle - 180, 0, 0);
-
+            transform.localRotation = Quaternion.Euler(angle - 180, 0, 0);
         }
 
         if (m_ShotDelayTimer <= 0)

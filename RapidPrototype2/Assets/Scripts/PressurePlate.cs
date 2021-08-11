@@ -24,7 +24,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider _other)
     {
-        if(_other.tag == "Player")
+        if(_other.tag == "Player" || _other.GetComponent<Rigidbody>() != null)
         {
             m_Door.m_IsOpen = true;
             m_Pressed = true;
@@ -33,7 +33,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerExit(Collider _other)
     {
-        if (_other.tag == "Player")
+        if (_other.tag == "Player" || _other.GetComponent<Rigidbody>() != null)
         {
             m_Door.m_IsOpen = false;
             m_Pressed = false;

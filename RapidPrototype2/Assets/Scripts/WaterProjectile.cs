@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterProjectile : MonoBehaviour
 {
-    public float m_ProjectileSpeed = 1.0f;
+    public float m_ProjectileSpeed = 10.0f;
     public float m_LifeTime = 0.0f;
     public float m_MaxLifeTime = 5.0f;
     private void Update()

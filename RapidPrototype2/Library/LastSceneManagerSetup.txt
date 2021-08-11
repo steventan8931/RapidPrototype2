@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/WaterTest.unity
-=======
-- path: Assets/Scenes/GameScene.unity
->>>>>>> Steven
   isLoaded: 1
   isActive: 1
   isSubScene: 0

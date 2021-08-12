@@ -14,19 +14,30 @@ public class WaterFunc : MonoBehaviour
        
 
     }
+    public void changeForm(int formnum)
+    {
+        CubeState = formnum;
+        if (formnum == 2)
+        {
+          waterSelf.GetComponent<Renderer>().material = IceM;
+        }
+
+        if (formnum == 3)
+        {
+            waterSelf.GetComponent<Renderer>().material = HeatM;
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 4) // Water layer
         {
             if (collision.gameObject.GetComponent<WaterFunc>().CubeState == 2) //Ice form
             {
-                CubeState = 2;
-                waterSelf.GetComponent<Renderer>().material = IceM;
+                changeForm(2);
             }
             else if (collision.gameObject.GetComponent<WaterFunc>().CubeState == 3) //Heat form
             {
-                CubeState = 3;
-                waterSelf.GetComponent<Renderer>().material = HeatM;
+                changeForm(3);
             }
             else
             {

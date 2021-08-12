@@ -25,6 +25,26 @@ public class CharacterMotor : MonoBehaviour
 
     public float m_FacingAngle = 0.0f;
 
+    private void OnControllerColliderHit(ControllerColliderHit _hit)
+    {
+        Vector3 horizontalVelocity = m_Velocity;
+        horizontalVelocity.y = 0.0f;
+
+        if (_hit.moveDirection.y < -0.3f)
+        {
+            return;
+        }
+
+        if (_hit.collider.GetComponent<Rigidbody>() != null)
+        {
+            Rigidbody rigid = _hit.collider.GetComponent<Rigidbody>();
+            if (horizontalVelocity.x != 0)
+            {
+                rigid.AddForce(horizontalVelocity * m_PushStrength);
+            }
+        }
+    }
+
     public void Update()
     {
         float x = 0.0f;

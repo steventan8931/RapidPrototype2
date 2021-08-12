@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1407426381531776209}
   - component: {fileID: 3258379564508028468}
   - component: {fileID: 6660624942692411241}
-  m_Layer: 0
+  - component: {fileID: 1397253297397892046}
+  m_Layer: 4
   m_Name: WaterProjectile
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e91710babc526e4aa1e002c199a546f, type: 2}
+  - {fileID: 2100000, guid: e3eaa2707e368cc4ab39993e46908b47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,3 +128,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1397253297397892046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407426381531776239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3fb758e0c10ce748a82f3c98c8dcbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CubeState: 1
+  WaterM: {fileID: 2100000, guid: e3eaa2707e368cc4ab39993e46908b47, type: 2}
+  IceM: {fileID: 2100000, guid: 8e91710babc526e4aa1e002c199a546f, type: 2}
+  HeatM: {fileID: 2100000, guid: 8e91710babc526e4aa1e002c199a546f, type: 2}
+  waterSelf: {fileID: 1407426381531776239}

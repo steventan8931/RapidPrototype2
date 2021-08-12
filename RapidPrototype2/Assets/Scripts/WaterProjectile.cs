@@ -23,13 +23,13 @@ public class WaterProjectile : MonoBehaviour
         }
     }
 
-    //Destory if hits an object that it isnt a water projectile
-    private void OnCollisionEnter(Collision _collision)
-    {
-        if (_collision.gameObject.GetComponent<WaterProjectile>() == null)
-        {
-            Destroy(gameObject);
-        }
-    }
+    ////Destory if hits an object that it isnt a water projectile
+    //private void OnCollisionEnter(Collision _collision)
+    //{
+    //    if (_collision.gameObject.layer == 0)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
 }

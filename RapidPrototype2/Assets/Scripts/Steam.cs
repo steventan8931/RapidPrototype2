@@ -8,7 +8,7 @@ public class Steam : MonoBehaviour
 
     public bool m_TurnedToSteam = false;
     public GameObject m_SteamParticles;
-    public SteamPad m_Pad;
+    public HeatPadScr m_Pad;
 
     private void OnTriggerStay(Collider _other)
     {

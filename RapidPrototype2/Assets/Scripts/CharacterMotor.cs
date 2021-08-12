@@ -83,7 +83,7 @@ public class CharacterMotor : MonoBehaviour
 
         m_Controller.Move(trueVelocity * Time.deltaTime);
 
-        if ((m_Controller.collisionFlags & CollisionFlags.Below) != 0)
+        if (m_Controller.collisionFlags == CollisionFlags.Below)
         {
             m_Velocity.y = -1.0f;
             m_Grounded = true;
@@ -92,6 +92,16 @@ public class CharacterMotor : MonoBehaviour
         {
             m_Grounded = false;
         }
+
+        //if ((m_Controller.collisionFlags & CollisionFlags.Below) != 0)
+        //{
+        //    m_Velocity.y = -1.0f;
+        //    m_Grounded = true;
+        //}
+        //else
+        //{
+        //    m_Grounded = false;
+        //}
 
         if ((m_Controller.collisionFlags & CollisionFlags.Above) != 0)
         {

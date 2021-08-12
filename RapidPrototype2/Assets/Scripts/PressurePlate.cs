@@ -16,6 +16,7 @@ public class PressurePlate : MonoBehaviour
     public float m_PlatePressSpeed = 0.5f;
 
     bool m_CacheBool;
+    Collider m_Other;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class PressurePlate : MonoBehaviour
         {
             m_Door.m_IsOpen = true;
             m_Pressed = true;
+            m_Other = _other;
         }
     }
 
@@ -42,6 +44,12 @@ public class PressurePlate : MonoBehaviour
 
     private void Update()
     {
+        if (m_Pressed && !m_Other)
+        {
+            m_Pressed = false;
+            m_Door.m_IsOpen = false;
+        }
+
         if (m_CacheBool != m_Pressed)
         {
             m_PlatePressTimer = 0.0f;

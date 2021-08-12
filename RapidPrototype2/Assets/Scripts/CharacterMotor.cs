@@ -45,8 +45,35 @@ public class CharacterMotor : MonoBehaviour
         }
     }
 
+    public bool ResetZAxis()
+    {
+        //If the player is pushed off the z axis reset it to 0
+        if (transform.position.z > 0)
+        {
+            m_Controller.enabled = false;
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+            return(false);
+        }
+        else if (transform.position.z < 0)
+        {
+            m_Controller.enabled = false;
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+            return (false);
+        }
+        else
+        {
+            m_Controller.enabled = true;
+            return (true);
+        }
+    }
+
     public void Update()
     {
+        if(!ResetZAxis())
+        {
+            return;
+        }
+
         float x = 0.0f;
 
         x = Input.GetAxisRaw("Horizontal");

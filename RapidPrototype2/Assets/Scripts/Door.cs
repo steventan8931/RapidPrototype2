@@ -15,7 +15,6 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
-        m_StartPosition = transform.position;
         m_CacheBool = m_IsOpen;
     }
 

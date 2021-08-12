@@ -11,7 +11,10 @@ public class WaterFunc : MonoBehaviour
     public GameObject waterSelf;
     private void FixedUpdate()
     {
-       
+       if(CubeState == 3)
+        {
+            Destroy(gameObject);
+        }    
 
     }
     public void changeForm(int formnum)

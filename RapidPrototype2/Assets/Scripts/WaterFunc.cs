@@ -9,11 +9,18 @@ public class WaterFunc : MonoBehaviour
     public int CubeState = 1;
     public Material WaterM, IceM, HeatM;
     public GameObject waterSelf;
+    public void destroyWater()
+    {
+
+        Destroy(gameObject);
+    }
     private void FixedUpdate()
     {
        if(CubeState == 3)
         {
-            Destroy(gameObject);
+
+            //Invoke("destroyWater()", 0.5f);
+            destroyWater();
         }    
 
     }

@@ -24,7 +24,7 @@ public class IceCreator : MonoBehaviour
     {
         if (m_WaterCount >= m_WaterNeededTomakeIce)
         {
-            Vector3 SpawnPos = new Vector3(transform.position.x + Random.Range(m_SpawnOffsetExtents.x, m_SpawnOffsetExtents.y), transform.position.y, transform.position.z + Random.Range(m_SpawnOffsetExtents.x, m_SpawnOffsetExtents.y));
+            Vector3 SpawnPos = new Vector3(transform.position.x + Random.Range(m_SpawnOffsetExtents.x, m_SpawnOffsetExtents.y), transform.position.y, transform.position.z - 0.5f);
             Instantiate(m_IceCubePrefab, SpawnPos, Quaternion.identity);
             m_WaterCount = 0;
         }

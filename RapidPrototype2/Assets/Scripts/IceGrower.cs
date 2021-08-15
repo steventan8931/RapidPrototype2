@@ -26,6 +26,7 @@ public class IceGrower : MonoBehaviour
         {
             if (transform.localScale.x > 0.5f)
             {
+                Debug.Log("transf");
                 transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
                 m_DecayTimer = 0;
             }

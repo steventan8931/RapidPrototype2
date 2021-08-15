@@ -9,13 +9,18 @@ public class IceCreator : MonoBehaviour
     public GameObject m_IceCubePrefab;
 
     public Vector2 m_SpawnOffsetExtents = new Vector2(-1.0f, 1.0f);
+
+    public AudioSource m_Audio;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 4 && collision.gameObject.GetComponent<WaterProjectile>() != null)
         {
-            //change cube to heat cubeX  destroy heat cube
-            collision.gameObject.GetComponent<WaterFunc>().changeForm(3);
             m_WaterCount++;
+            if (!m_Audio.isPlaying)
+            {
+                m_Audio.Play();
+            }
             Destroy(collision.gameObject);
         }
     }

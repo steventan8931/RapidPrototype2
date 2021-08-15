@@ -7,7 +7,6 @@ public class IceCreator : MonoBehaviour
     public int m_WaterCount = 0;
     public int m_WaterNeededTomakeIce = 10;
     public GameObject m_IceCubePrefab;
-
     public Vector2 m_SpawnOffsetExtents = new Vector2(-1.0f, 1.0f);
 
     public AudioSource m_Audio;
@@ -32,6 +31,7 @@ public class IceCreator : MonoBehaviour
             Vector3 SpawnPos = new Vector3(transform.position.x + Random.Range(m_SpawnOffsetExtents.x, m_SpawnOffsetExtents.y), transform.position.y, transform.position.z - 0.5f);
             Instantiate(m_IceCubePrefab, SpawnPos, Quaternion.identity);
             m_WaterCount = 0;
+            m_Audio.Stop();
         }
     }
 }

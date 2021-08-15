@@ -25,6 +25,7 @@ public class CharacterMotor : MonoBehaviour
 
     public float m_FacingAngle = 0.0f;
 
+    public AudioSource m_IcePushAudio;
     private void OnControllerColliderHit(ControllerColliderHit _hit)
     {
         Vector3 horizontalVelocity = m_Velocity;
@@ -41,6 +42,11 @@ public class CharacterMotor : MonoBehaviour
             if (horizontalVelocity.x != 0)
             {
                 rigid.AddForce(horizontalVelocity * m_PushStrength);
+                if (!m_IcePushAudio.isPlaying)
+                {
+                    m_IcePushAudio.Play();
+                }
+
             }
         }
     }

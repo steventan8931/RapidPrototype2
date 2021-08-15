@@ -21,7 +21,7 @@ public class IceCubeScr : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(m_WaterCount == 10)
+        if(m_WaterCount >= 10)
         {
             IceLayer2.SetActive(true);
         }

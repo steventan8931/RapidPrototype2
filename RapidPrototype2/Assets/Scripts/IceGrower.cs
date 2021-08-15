@@ -6,6 +6,7 @@ public class IceGrower : MonoBehaviour
 {
     public float m_DecayTimer = 0.0f;
     public float m_DecayRate = 0.5f;
+
     private void OnCollisionEnter(Collision _collision)
     {
         if (_collision.gameObject.GetComponent<WaterProjectile>() != null)
@@ -16,6 +17,7 @@ public class IceGrower : MonoBehaviour
                 transform.localScale += new Vector3(0.02f, 0.02f, 0.02f);
             }
         }
+
     }
 
     private void Update()
@@ -26,7 +28,6 @@ public class IceGrower : MonoBehaviour
         {
             if (transform.localScale.x > 0.5f)
             {
-                Debug.Log("transf");
                 transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
                 m_DecayTimer = 0;
             }

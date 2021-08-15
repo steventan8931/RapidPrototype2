@@ -17,6 +17,7 @@ public class HeatPadScr : MonoBehaviour
             {
                 m_Audio.Play();
             }
+            Destroy(collision.gameObject);
         }
     }
 }

@@ -5,10 +5,11 @@ using UnityEngine;
 public class IceCubeScr : MonoBehaviour
 {
     public int m_WaterCount = 0;
+    public bool isAppearing = true;
     public GameObject IceLayer1, IceLayer2;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 4)
+        if (collision.gameObject.layer == 4 && isAppearing )
         {
             //change cube to heat cubeX  destroy heat cube
             collision.gameObject.GetComponent<WaterFunc>().changeForm(2);

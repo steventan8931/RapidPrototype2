@@ -13,7 +13,15 @@ public class HeatPadScr : MonoBehaviour
             collision.gameObject.GetComponent<WaterFunc>().changeForm(3);
            
             m_WaterCount++;
-            
+
+        }
+        if (collision.gameObject.layer == 8)
+        {
+            //change cube to heat cubeX  destroy heat cube
+            collision.gameObject.GetComponent<WaterFunc>().changeForm(3);
+            collision.gameObject.GetComponent<WaterFunc>().Invoke("destroyWater", 0.5f);
+            m_WaterCount++;
+
         }
     }
 }

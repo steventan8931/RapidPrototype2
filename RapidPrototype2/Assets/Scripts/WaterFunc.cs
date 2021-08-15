@@ -7,7 +7,7 @@ using UnityEngine;
 public class WaterFunc : MonoBehaviour
 {
     public int CubeState = 1;
-    public Material WaterM, IceM, HeatM;
+    public Material WaterM, IceM, HeatM;  
     public GameObject waterSelf;
     public void destroyWater()
     {

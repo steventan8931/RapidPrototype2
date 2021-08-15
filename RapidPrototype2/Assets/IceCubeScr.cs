@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IcePadScr : MonoBehaviour
+public class IceCubeScr : MonoBehaviour
 {
-    public int watercount;
-    public GameObject Icecube;
+    public int m_WaterCount = 0;
+    public GameObject IceLayer1, IceLayer2;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 4)
         {
-            //change cube to ice cube
+            //change cube to heat cubeX  destroy heat cube
             collision.gameObject.GetComponent<WaterFunc>().changeForm(2);
             collision.gameObject.GetComponent<WaterFunc>().Invoke("destroyWater", 0.5f);
-            watercount++;
+            m_WaterCount++;
 
         }
     }
 
     private void FixedUpdate()
     {
-        if(watercount == 10)
+        if(m_WaterCount == 10)
         {
-            Icecube.SetActive(true);
+            IceLayer2.SetActive(true);
         }
+
+    
     }
 }

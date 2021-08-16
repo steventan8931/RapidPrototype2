@@ -22,6 +22,10 @@ public class HeatPadScr : MonoBehaviour
         }
         if (collision.gameObject.layer == 8)
         {
+            if (!m_Audio.isPlaying)
+            {
+                m_Audio.Play();
+            }
             //change cube to heat cubeX  destroy heat cube
             collision.gameObject.GetComponent<WaterFunc>().changeForm(3);
             collision.gameObject.GetComponent<WaterFunc>().Invoke("destroyWater", 0.5f);

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class CharacterMotor : MonoBehaviour
@@ -26,6 +27,11 @@ public class CharacterMotor : MonoBehaviour
     public float m_FacingAngle = 0.0f;
 
     public AudioSource m_IcePushAudio;
+
+    public Animator m_Animation;
+
+    public bool m_WaterCrystalCollected = false;
+
     private void OnControllerColliderHit(ControllerColliderHit _hit)
     {
         Vector3 horizontalVelocity = m_Velocity;
@@ -79,7 +85,7 @@ public class CharacterMotor : MonoBehaviour
         {
             return;
         }
-
+        
         float x = 0.0f;
 
         x = Input.GetAxisRaw("Horizontal");
@@ -87,6 +93,8 @@ public class CharacterMotor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && m_Grounded)
         {
             m_Velocity.y = m_JumpSpeed;
+            m_Animation.ResetTrigger("Jumping");
+            m_Animation.SetTrigger("Jumping");
         }
 
         Vector3 inputMove = new Vector3(x, 0.0f, 0.0f);
@@ -110,6 +118,15 @@ public class CharacterMotor : MonoBehaviour
 
         m_Velocity.y = cacheY;
         m_Velocity.y -= m_Gravity * Time.deltaTime;
+
+        if (m_Velocity.x == 0)
+        {
+            m_Animation.SetBool("Walking", false);
+        }
+        else
+        {
+            m_Animation.SetBool("Walking", true);
+        }
 
         Vector3 trueVelocity = m_Velocity;
         trueVelocity.x *= m_MoveSpeed;

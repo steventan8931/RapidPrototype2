@@ -24,6 +24,8 @@ public class Steam : MonoBehaviour
 
                 _other.GetComponent<CharacterMotor>().m_Gravity = 1.0f;
                 _other.GetComponent<CharacterMotor>().m_Grounded = true;
+                _other.GetComponent<CharacterMotor>().m_Animation.ResetTrigger("Jumping");
+                _other.GetComponent<CharacterMotor>().m_Animation.SetTrigger("Jumping");
             }
         }
     }

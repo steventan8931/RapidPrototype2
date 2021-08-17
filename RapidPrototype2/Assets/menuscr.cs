@@ -10,7 +10,7 @@ public class menuscr : MonoBehaviour
     {
         transistion.SetTrigger("IsStart");
         print("trigger activated");
-        //Invoke("loadGameScene", 0.5f);
+        Invoke("loadGameScene", 1.5f);
     }
      
     public void loadGameScene()

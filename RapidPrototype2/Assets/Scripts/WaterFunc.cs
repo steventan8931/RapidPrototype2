@@ -34,7 +34,8 @@ public class WaterFunc : MonoBehaviour
 
         if (formnum == 3)
         {
-            waterSelf.GetComponent<Renderer>().material = HeatM;
+            //waterSelf.GetComponent<Renderer>().material = HeatM;
+            GetComponent<Renderer>().material.Lerp(IceM, HeatM, Time.time * 0.1f);
         }
     }
     private void OnCollisionEnter(Collision collision)

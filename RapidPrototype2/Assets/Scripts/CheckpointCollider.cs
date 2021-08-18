@@ -10,12 +10,15 @@ public class CheckpointCollider : MonoBehaviour
     public float m_Timer = 0.0f;
     public GameObject m_Light;
 
+    public AudioSource m_Audio;
+
     private void OnTriggerEnter(Collider _other)
     {
         if(_other.tag == "Player" && !m_Collided)
         {
             _other.GetComponent<CheckpointRespawn>().m_CheckPoint++;
             m_Collided = true;
+            m_Audio.Play();
         }
     }
 

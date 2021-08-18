@@ -26,7 +26,7 @@ public class TwoDoorPressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider _other)
     {
-        if (_other.tag == "Player" || _other.GetComponent<Rigidbody>() != null)
+        if (_other.tag == "Player" || (_other.GetComponent<Rigidbody>() != null && _other.GetComponent<WaterProjectile>() == null))
         {
             m_Door1.m_IsOpen = true;
             m_Door2.m_IsOpen = false;
@@ -37,7 +37,7 @@ public class TwoDoorPressurePlate : MonoBehaviour
 
     private void OnTriggerExit(Collider _other)
     {
-        if (_other.tag == "Player" || _other.GetComponent<Rigidbody>() != null)
+        if (_other.tag == "Player" || (_other.GetComponent<Rigidbody>() != null&& _other.GetComponent<WaterProjectile>() == null))
         {
             m_Door1.m_IsOpen = false;
             m_Door2.m_IsOpen = true;

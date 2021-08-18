@@ -8298,9 +8298,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a523e0c2e64ed499edffa7f185b7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaterBar: {fileID: 0}
+  WaterBar: {fileID: 1667609713}
   currentWater: 0
-  maxWater: 100
+  maxWater: 1000
+  playerGun: {fileID: 2120132221}
 --- !u!114 &1667609713
 MonoBehaviour:
   m_ObjectHideFlags: 0

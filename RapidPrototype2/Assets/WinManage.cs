@@ -11,7 +11,7 @@ public class WinManage : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(manager.GetComponent<GameState>().m_GameWin == true)
+        if (manager.GetComponent<GameState>().m_GameWin == true)
         {
             winText.SetActive(true);
             Black_Screen.SetBool("IsWin", true);

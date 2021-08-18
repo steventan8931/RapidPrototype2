@@ -111,9 +111,10 @@ MonoBehaviour:
   m_ProjectileSpeed: 20
   m_LifeTime: 0
   m_MaxLifeTime: 5
-  m_EnvironmentLayer:
+  m_HitLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
+  m_Radius: 0.1
 --- !u!54 &6660624942692411241
 Rigidbody:
   m_ObjectHideFlags: 0

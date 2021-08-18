@@ -7,6 +7,7 @@ public class WinManage : MonoBehaviour
     // Start is called before the first frame update
     public GameObject manager, winText;
     public Animator Black_Screen;
+    public AudioSource m_Audio;
 
     private void FixedUpdate()
     {
@@ -14,7 +15,11 @@ public class WinManage : MonoBehaviour
         {
             winText.SetActive(true);
             Black_Screen.SetBool("IsWin", true);
-            Invoke("loadEndScene", 2.0f);
+            if (!m_Audio.isPlaying)
+            {
+                m_Audio.Play();
+            }
+            Invoke("loadEndScene", 3.0f);
         }
 
     }

@@ -13,15 +13,20 @@ public class Door : MonoBehaviour
 
     bool m_CacheBool;
 
+    public AudioSource m_Audio;
+
     private void Start()
     {
         m_CacheBool = m_IsOpen;
+        m_Audio.enabled = false;
     }
 
     private void Update()
     {
         if (m_CacheBool != m_IsOpen)
         {
+            //If changed
+            m_Audio.enabled = true;
             m_DoorOpenTimer = 0.0f;
             m_CacheBool = m_IsOpen;
         }
@@ -30,8 +35,17 @@ public class Door : MonoBehaviour
             if (transform.position != m_EndPosition)
             {
                 m_DoorOpenTimer += Time.deltaTime * m_DoorOpenSpeed;
+                if (m_Audio.enabled)
+                {
+                    if (!m_Audio.isPlaying)
+                    {
+                        m_Audio.Play();
+                    }
+                }
             }
+
             transform.position = Vector3.Lerp(transform.position, m_EndPosition, m_DoorOpenTimer);
+ 
         }
         else
         {

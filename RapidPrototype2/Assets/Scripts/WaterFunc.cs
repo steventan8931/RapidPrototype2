@@ -20,7 +20,7 @@ public class WaterFunc : MonoBehaviour
         {
 
             //Invoke("destroyWater()", 0.5f);
-            destroyWater();
+            //destroyWater();
         }    
 
     }

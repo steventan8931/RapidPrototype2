@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class CharacterMotor : MonoBehaviour
@@ -27,6 +26,7 @@ public class CharacterMotor : MonoBehaviour
     public float m_FacingAngle = 0.0f;
 
     public AudioSource m_IcePushAudio;
+    public AudioSource m_JumpAudio;
 
     public Animator m_Animation;
 
@@ -93,6 +93,7 @@ public class CharacterMotor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && m_Grounded)
         {
             m_Velocity.y = m_JumpSpeed;
+            m_JumpAudio.Play();
             m_Animation.ResetTrigger("Jumping");
             m_Animation.SetTrigger("Jumping");
         }

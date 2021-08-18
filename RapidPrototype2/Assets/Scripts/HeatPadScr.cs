@@ -28,9 +28,11 @@ public class HeatPadScr : MonoBehaviour
             }
             //change cube to heat cubeX  destroy heat cube
             collision.gameObject.GetComponent<WaterFunc>().changeForm(3);
-            collision.gameObject.GetComponent<WaterFunc>().Invoke("destroyWater", 0.5f);
+            collision.gameObject.GetComponent<IceGrower>().m_DecaySize = 0.25f;
+            //collision.gameObject.GetComponent<WaterFunc>().Invoke("destroyWater", 0.5f);
             m_WaterCount++;
 
         }
     }
+
 }

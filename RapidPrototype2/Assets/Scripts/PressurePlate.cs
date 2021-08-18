@@ -25,7 +25,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider _other)
     {
-        if(_other.tag == "Player" || _other.GetComponent<Rigidbody>() != null)
+        if(_other.tag == "Player" || (_other.GetComponent<Rigidbody>() != null && _other.GetComponent<WaterProjectile>() == null))
         {
             m_Door.m_IsOpen = true;
             m_Pressed = true;
@@ -35,7 +35,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerExit(Collider _other)
     {
-        if (_other.tag == "Player" || _other.GetComponent<Rigidbody>() != null)
+        if (_other.tag == "Player" || (_other.GetComponent<Rigidbody>() != null && _other.GetComponent<WaterProjectile>() == null))
         {
             m_Door.m_IsOpen = false;
             m_Pressed = false;
@@ -60,6 +60,7 @@ public class PressurePlate : MonoBehaviour
             if (m_Model.localPosition != m_EndPosition)
             {
                 m_PlatePressTimer += Time.deltaTime * m_PlatePressSpeed;
+                m_Door.m_Audio.enabled = true;
             }
             m_Model.localPosition = Vector3.Lerp(m_Model.localPosition, m_EndPosition, m_PlatePressTimer);
         }

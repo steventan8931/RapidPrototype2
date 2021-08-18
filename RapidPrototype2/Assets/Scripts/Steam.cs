@@ -10,6 +10,9 @@ public class Steam : MonoBehaviour
     public GameObject m_SteamParticles;
     public HeatPadScr m_Pad;
 
+    public float m_HeatTimer = 0.0f;
+    public float m_HeatDecayTime = 10.0f;
+
     private void OnTriggerStay(Collider _other)
     {
         if (m_TurnedToSteam)
@@ -44,10 +47,18 @@ public class Steam : MonoBehaviour
         {
             m_SteamParticles.SetActive(true);
             m_TurnedToSteam = true;
+            m_HeatTimer += Time.deltaTime;
         }
         else
         {
             m_SteamParticles.SetActive(false);
+            m_TurnedToSteam = false;
+        }
+
+        if(m_HeatTimer > m_HeatDecayTime)
+        {
+            m_HeatTimer = 0;
+            m_Pad.m_WaterCount = 0;
         }
     }
 }
